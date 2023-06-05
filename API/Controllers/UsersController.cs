@@ -19,8 +19,7 @@ namespace API.Controllers
         {
             _dbContext = dbContext;
         }
-
-        [Authorize]
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
