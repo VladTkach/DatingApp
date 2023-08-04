@@ -40,6 +40,11 @@ public class Startup
         app.UseSwagger();
         app.UseSwaggerUI();
 
+        app.UseCors(builder => builder
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithOrigins("https://localhost:4200"));
+
         app.UseRouting();
         app.UseHttpsRedirection();
         app.UseAuthentication();
