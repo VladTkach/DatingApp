@@ -19,6 +19,8 @@ public class Startup
             options.UseSqlite(_configuration["ConnectionStrings:DatingAppConnection"]));
         
         services.RegisterCustomServices();
+        
+        services.ConfigureJwt(_configuration);
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
