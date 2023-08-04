@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingApp.WebApi", "DatingApp.WebApi\DatingApp.WebApi.csproj", "{6AE0A466-B651-4768-AA6A-E9D52DFA92E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingApp.DAL", "DatingApp.DAL\DatingApp.DAL.csproj", "{5AE62A9A-C772-46EB-A252-C1E4541C57C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingApp.BL", "DatingApp.BL\DatingApp.BL.csproj", "{A083858A-3423-43C5-B7A8-B2FC06FD5EB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingApp.Common", "DatingApp.Common\DatingApp.Common.csproj", "{293FD93A-7B29-4240-A5D4-2EAF43F5717E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AE0A466-B651-4768-AA6A-E9D52DFA92E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE0A466-B651-4768-AA6A-E9D52DFA92E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE0A466-B651-4768-AA6A-E9D52DFA92E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE0A466-B651-4768-AA6A-E9D52DFA92E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AE62A9A-C772-46EB-A252-C1E4541C57C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AE62A9A-C772-46EB-A252-C1E4541C57C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AE62A9A-C772-46EB-A252-C1E4541C57C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AE62A9A-C772-46EB-A252-C1E4541C57C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A083858A-3423-43C5-B7A8-B2FC06FD5EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A083858A-3423-43C5-B7A8-B2FC06FD5EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A083858A-3423-43C5-B7A8-B2FC06FD5EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A083858A-3423-43C5-B7A8-B2FC06FD5EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293FD93A-7B29-4240-A5D4-2EAF43F5717E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293FD93A-7B29-4240-A5D4-2EAF43F5717E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293FD93A-7B29-4240-A5D4-2EAF43F5717E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293FD93A-7B29-4240-A5D4-2EAF43F5717E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
