@@ -14,8 +14,7 @@ namespace DatingApp.WebApi.Controllers
         {
             _context = context;
         }
-
-        [Authorize]
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
@@ -23,6 +22,7 @@ namespace DatingApp.WebApi.Controllers
             return users;
         }
         
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUserById(int id)
         {
