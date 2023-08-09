@@ -1,5 +1,6 @@
 ﻿using DatingApp.DAL.Context;
 using DatingApp.WebApi.Extensions;
+using DatingApp.WebApi.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.WebApi;
@@ -41,6 +42,8 @@ public class Startup
         
         app.UseSwagger();
         app.UseSwaggerUI();
+
+        app.UseMiddleware<ExceptionMiddleware>();
 
         app.UseCors(builder => builder
             .AllowAnyMethod()
