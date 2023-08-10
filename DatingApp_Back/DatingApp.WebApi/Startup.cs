@@ -18,9 +18,11 @@ public class Startup
     {
         services.AddDbContext<DatingAppContext>(options =>
             options.UseSqlite(_configuration["ConnectionStrings:DatingAppConnection"]));
-        
+
+        services.RegisterAutoMapper();
+
         services.RegisterCustomServices();
-        
+
         services.ConfigureJwt(_configuration);
 
         services.AddEndpointsApiExplorer();
@@ -39,7 +41,7 @@ public class Startup
         {
             app.UseHsts();
         }
-        
+
         app.UseSwagger();
         app.UseSwaggerUI();
 
@@ -59,5 +61,23 @@ public class Startup
         {
             cfg.MapControllers();
         });
+        
+        InitializeDatabase(app);
+    }
+
+    private static async void InitializeDatabase(IApplicationBuilder app)
+    {
+        using var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
+        try
+        {
+            await using var context = scope.ServiceProvider.GetRequiredService<DatingAppContext>();
+            await context.Database.MigrateAsync();
+            await Seed.SeedUsers(context);
+        }
+        catch (Exception e)
+        {
+            var logger = scope.ServiceProvider.GetService<ILogger<Program>>();
+            logger.LogError(e, "An Error occured during migration");
+        }
     }
 }
