@@ -15,5 +15,6 @@ public class UserProfile: Profile
             .ForMember(dest => dest.Age, opt => opt
                 .MapFrom(src => src.DateOfBirth.CalculateAge()));
         CreateMap<MemberUpdateDto, AppUser>();
+        CreateMap<RegisterDto, AppUser>();
     }
 }
