@@ -14,8 +14,9 @@ public static class ServiceExtensions
     public static void RegisterCustomServices(this IServiceCollection services)
     {
         services.AddScoped<ITokenService, TokenService>();
-
         services.AddScoped<IUserRepository, UserRepository>();
+
+        services.AddScoped<IPhotoService, PhotoService>();
     }
 
     public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)

@@ -1,4 +1,5 @@
 ﻿using DatingApp.DAL.Context;
+using DatingApp.DAL.Entities;
 using DatingApp.WebApi.Extensions;
 using DatingApp.WebApi.Middleware;
 using Microsoft.EntityFrameworkCore;
@@ -20,10 +21,11 @@ public class Startup
             options.UseSqlite(_configuration["ConnectionStrings:DatingAppConnection"]));
 
         services.RegisterAutoMapper();
-
         services.RegisterCustomServices();
-
+        
         services.ConfigureJwt(_configuration);
+
+        services.Configure<CloudinarySettings>(_configuration.GetSection("CloudinarySettings"));
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
