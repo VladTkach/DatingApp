@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using DatingApp.DAL.Extensions;
-
-namespace DatingApp.DAL.Entities;
+﻿namespace DatingApp.DAL.Entities;
 
 public class AppUser
 {
@@ -13,7 +10,7 @@ public class AppUser
     public string KnownAs { get; set; }
     public DateTime Created { get; set; } = DateTime.UtcNow;
     public DateTime LastActive { get; set; } = DateTime.UtcNow;
-    public string Gender;
+    public string Gender { get; set; }
     public string Introduction { get; set; }
     public string LookingFor { get; set; }
     public string Interests { get; set; }

@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using AutoMapper;
 using DatingApp.BL.Interfaces;
+using DatingApp.Common.DTO.Paged;
 using DatingApp.Common.DTO.Photo;
 using DatingApp.Common.DTO.User;
 using DatingApp.DAL.Entities;
@@ -25,9 +26,17 @@ namespace DatingApp.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task<ActionResult<PagesList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
         {
-            var users = await _userRepository.GetMembersAsync();
+            var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            userParams.CurrentUsername = currentUser.UserName;
+
+            if (string.IsNullOrEmpty(userParams.Gender))
+                userParams.Gender = currentUser.Gender == "male" ? "female" : "male";
+
+            var users = await _userRepository.GetMembersAsync(userParams);
+            Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount,
+                users.TotalPages));
             return Ok(users);
         }
 
@@ -115,7 +124,6 @@ namespace DatingApp.WebApi.Controllers
             {
                 var result = await _photoService.DeletePhotoAsync(photo.PublicId);
                 if (result.Error != null) return BadRequest(result.Error.Message);
-                
             }
 
             user.Photos.Remove(photo);

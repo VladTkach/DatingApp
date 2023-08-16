@@ -6,6 +6,7 @@ using DatingApp.BL.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using DatingApp.BL.MappingProfiles;
+using DatingApp.WebApi.Helpers;
 
 namespace DatingApp.WebApi.Extensions;
 
@@ -17,6 +18,8 @@ public static class ServiceExtensions
         services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddScoped<IPhotoService, PhotoService>();
+
+        services.AddScoped<LogUserActivity>();
     }
 
     public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)

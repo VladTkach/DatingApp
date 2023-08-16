@@ -1,4 +1,5 @@
-﻿using DatingApp.Common.DTO.User;
+﻿using DatingApp.Common.DTO.Paged;
+using DatingApp.Common.DTO.User;
 using DatingApp.DAL.Entities;
 
 namespace DatingApp.BL.Interfaces;
@@ -15,6 +16,6 @@ public interface IUserRepository
     
     Task<AppUser> GetUserByUsernameAsync(string username);
 
-    Task<IEnumerable<MemberDto>> GetMembersAsync();
+    Task<PagesList<MemberDto>> GetMembersAsync(UserParams userParams);
     Task<MemberDto> GetMemberAsync(string username);
 }
