@@ -3,7 +3,6 @@ import {Member} from "../../_models/member";
 import {MembersService} from "../../_services/members.service";
 import {Pagination} from "../../_models/pagination";
 import {UserParams} from "../../_models/userParams";
-import {User} from "../../_models/user";
 
 @Component({
   selector: 'app-member-list',
