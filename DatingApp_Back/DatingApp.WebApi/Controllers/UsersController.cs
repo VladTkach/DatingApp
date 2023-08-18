@@ -24,7 +24,7 @@ namespace DatingApp.WebApi.Controllers
             _mapper = mapper;
             _photoService = photoService;
         }
-
+        
         [HttpGet]
         public async Task<ActionResult<PagesList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
         {
@@ -39,7 +39,7 @@ namespace DatingApp.WebApi.Controllers
                 users.TotalPages));
             return Ok(users);
         }
-
+        
         [HttpGet("{username}")]
         public async Task<ActionResult<MemberDto>> GetUserByUsername(string username)
         {

@@ -1,10 +1,11 @@
 ﻿using System.Net;
 using System.Text.Json;
 using DatingApp.WebApi.Errors;
+using Microsoft.AspNetCore.Identity;
 
 namespace DatingApp.WebApi.Middleware;
 
-public class ExceptionMiddleware
+public class ExceptionMiddleware : IdentityUser
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<ExceptionMiddleware> _logger;
