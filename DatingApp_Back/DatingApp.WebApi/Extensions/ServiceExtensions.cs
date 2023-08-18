@@ -17,7 +17,8 @@ public static class ServiceExtensions
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ILikesRepository, LikesRepository>();
-        
+        services.AddScoped<IMessageRepository, MessageRepository>();
+
         services.AddScoped<IPhotoService, PhotoService>();
 
         services.AddScoped<LogUserActivity>();
@@ -44,6 +45,7 @@ public static class ServiceExtensions
             {
                 cfg.AddProfile<UserProfile>();
                 cfg.AddProfile<PhotoProfile>();
+                cfg.AddProfile<MessageProfile>();
             },
             Assembly.GetExecutingAssembly());
     }
